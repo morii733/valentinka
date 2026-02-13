@@ -1,0 +1,35 @@
+function openChest(btnElem) {
+    btnElem.classList.add("evaporate")
+    modal.classList.add("modal")
+    setTimeout(() => {
+        btnElem.style.display = "none"
+        modal.style.display = "flex"
+    }, 800);
+}
+
+function createHearts() {
+    const heart = document.createElement("div")
+    heart.classList.add("heart")
+    heart.style.left = Math.random() * 100 + "vw"
+    heart.style.animationDuration = Math.random() * 2 + 3 + "s"
+
+    document.body.appendChild(heart)
+
+    setTimeout(() => {
+        heart.remove()
+    }, 5000)
+}
+
+function cntpressed() {
+    modal.classList.add("modal")
+    modal2.classList.add("modal2")
+    setTimeout(() => {
+        modal.style.display = "none"
+        modal2.style.display = "flex"
+        setInterval(createHearts, 300)
+        setTimeout(() => {
+            modal2.style.transform = "scale(1.8)"
+            modal2.style.transition = "0.5s"
+        }, 200)
+    }, 200)
+}
